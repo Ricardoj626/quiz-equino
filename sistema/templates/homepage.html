@@ -1,0 +1,28 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+{% load bootstrap %}
+
+{% block head_title %}pinax-project-account{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+<main>
+    <section class="jumbotron">
+        <div class="container">
+            {% include "_messages.html" %}
+            <h1>{% blocktrans %}Bem vindo ao <div style="font-size: 6rem; font-weight: 600;">Bem Estar Animal</div>{% endblocktrans %}</h1>
+            <p class="lead">
+                {% blocktrans %}
+                Participe do quiz clicando <a href="/quiz">AQUI</a>
+                {% endblocktrans %}
+            </p>
+
+            <img src="{% static 'img/vaca.png' %}" />
+        </div>
+    </section>
+
+</main>
+{% endblock %}

@@ -14,7 +14,7 @@ urlpatterns = [
     path("pergunta8/<int:pk>/", pergunta8_view, name="pergunta8"),
     path("pergunta9/<int:pk>/", pergunta9_view, name="pergunta9"),
     path("pergunta10/<int:pk>/", pergunta10_view, name="pergunta10"),
-    path("resultado", pergunta10_view, name="resultado"),
+    path("resultado", resultado_view, name="resultado"),
 
 
 ]

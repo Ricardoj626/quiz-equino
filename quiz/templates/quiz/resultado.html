@@ -1,0 +1,50 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% load i18n %}
+{% load bootstrap %}
+
+{% block head_title %}Perguntas{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+<main>
+    <section class="jumbotron" style="min-height:93%;width: 100%;position:absolute;margin-bottom:0px;">
+        <br>
+        <div class="row text-center ">
+
+            <div class="container">
+                <div class="col-sm-12" style="background: #559999; border: 3px solid #114444">
+
+                    <h1>Ranking</h1>
+
+
+
+                    <table class="table table-drk table-striped">
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {%for pergunta in perguntas%}
+                        <tr>
+                            <td>{{pergunta.nome}}</td>
+                            <td>{{ pergunta.pontuacao }}</td>
+
+                        </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+    </section>
+
+</main>
+{% endblock %}

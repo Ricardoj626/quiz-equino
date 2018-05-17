@@ -61,6 +61,7 @@ def pergunta1_view(request, pk):
     return render(request, 'quiz/pergunta1.html', context)
 
 def pergunta2_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p2 = instance.pergunta_2
 
@@ -77,10 +78,15 @@ def pergunta2_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_2)
         instance.save()
-        form = p2Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p2Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta2.html', context)
 
 def pergunta3_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p3 = instance.pergunta_3
     if request.method == "POST":
@@ -99,10 +105,15 @@ def pergunta3_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_3)
         instance.save()
-        form = p3Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p3Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta3.html', context)
 
 def pergunta4_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p4 = instance.pergunta_4
     if request.method == "POST":
@@ -119,11 +130,16 @@ def pergunta4_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_4)
         instance.save()
-        form = p4Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p4Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta4.html', context)
 
 
 def pergunta5_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p5 = instance.pergunta_5
     if request.method == "POST":
@@ -140,10 +156,15 @@ def pergunta5_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_5)
         instance.save()
-        form = p5Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p5Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta5.html', context)
 
 def pergunta6_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p6 = instance.pergunta_6
     if request.method == "POST":
@@ -162,11 +183,16 @@ def pergunta6_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_6)
         instance.save()
-        form = p6Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p6Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta6.html', context)
 
 
 def pergunta7_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p7 = instance.pergunta_7
     if request.method == "POST":
@@ -184,11 +210,16 @@ def pergunta7_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_7)
         instance.save()
-        form = p7Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p7Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta7.html', context)
 
 
 def pergunta8_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p8 = instance.pergunta_8
     if request.method == "POST":
@@ -197,7 +228,7 @@ def pergunta8_view(request, pk):
             instance2 = form.save(commit=False)
             print(instance.pergunta_8)
             if not p8:
-                if int(instance2.pergunta_9) > 9:
+                if int(instance2.pergunta_8) > 9:
                     instance.pontuacao += int(instance2.pergunta_8)
             instance.save()
             #######
@@ -207,11 +238,16 @@ def pergunta8_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_8)
         instance.save()
-        form = p8Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p8Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta8.html', context)
 
 
 def pergunta9_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p9 = instance.pergunta_9
     if request.method == "POST":
@@ -228,11 +264,16 @@ def pergunta9_view(request, pk):
     else:
         # instance.pontuacao -= int(instance.pergunta_9)
         instance.save()
-        form = p9Form(instance=instance)                          #######
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        form = p9Form(instance=instance)
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+    return render(request, 'quiz/pergunta9.html', context)
 
 
 def pergunta10_view(request, pk):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
     instance = get_object_or_404(Questionario, pk=pk)
     p10 = instance.pergunta_10
     if request.method == "POST":
@@ -244,10 +285,26 @@ def pergunta10_view(request, pk):
                     instance.pontuacao += int(instance2.pergunta_10)
             instance.save()
 
-            return redirect('pontuacao', pk=instance.pk)          #######
+            return redirect('resultado')          #######
         return redirect('pergunta10', pk=instance.pk)              #######
     else:
         # instance.pontuacao -= int(instance.pergunta_10)
         instance.save()
         form = p10Form(instance=instance)
-    return render(request, 'quiz/pergunta1.html', {'form': form})
+        context = {
+            "form": form,
+            "perguntas": perguntas,
+        }
+
+    return render(request, 'quiz/pergunta10.html', context)
+
+
+
+
+def resultado_view(request):
+    perguntas = Questionario.objects.all().order_by("-pontuacao")
+    context = {
+
+        "perguntas": perguntas,
+    }
+    return render(request, 'quiz/resultado.html', context)

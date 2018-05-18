@@ -10,14 +10,20 @@
 
 {% block body_base %}
 <main>
-    <section class="jumbotron" style="height:93%;width: 100%;position:absolute;margin-bottom:0px;">
+<section class="jumbotron" style="margin-bottom:0px;">
         <br>
         <div class="row">
             <div class="col-sm-6">
-                <form class="text-center" action="" method="POST" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+                <form class="" action="" method="POST" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
                     {% csrf_token %}
-                    {{ form|bootstrap }}
-
+                    <div class="container">
+                        {{ form|bootstrap }}
+                        <div class="container-fluid card">
+                            <li>a) A finalidade para qual o cavalo é mantido determina as práticas de manejo em que ele será submetido, influenciando diretamente no seu grau de bem-estar.  </li>
+                            <li>b) Situações que contrariam o comportamento natural dos equinos provocam emoções negativas que podem se manifestar por meio de estereotipias. </li>
+                            <li>c) A finalidade para qual o cavalo é mantido não determina as praticas de manejo em que ele será submetido, logo, a função que o animal exerce não influencia diretamente no seu grau de bem-estar. </li>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <input class="btn btn-primary btn-large" type="submit" value="Enviar"/>
@@ -25,15 +31,17 @@
                         {% endblock extra_buttons %}
                     </div>
                 </form>
+                <div class=""><p style="color:re" id="demo"></p></div>
             </div>
             {% if user.is_authenticated  %}
-            <div class="col-sm-6" style="background: #559999; border: 3px solid #114444">
+            <div class="col-sm-6">
+                     <img class="img-fluid rounded" src="{% static 'img/PERGUNTA 6.jpg' %}" />
 
                 <h1>Ranking</h1>
 
 
 
-                <table class="table table-drk table-striped">
+                <table class="table table-drk table-striped" style="background: #559999; border: 3px solid #114444">
                     <thead>
                     <tr>
                         <th>Nome</th>
@@ -52,12 +60,15 @@
 
                     </tbody>
                 </table>
-
+                                                        <button class="btn btn-success" type="button"
+onclick="document.getElementById('demo').innerHTML = 'ALTERNATIVA C'">
+Mostrar resposta</button>
                 {% else %}
                 <div class="col-sm-6">
-                <div class="card">
-                    <img src="{% static 'img/vaca.png' %}" />
-                </div>
+                    <div class="card">
+                        <img class="img-fluid rounded" src="{% static 'img/PERGUNTA 6.jpg' %}" />
+                    </div>
+
                 </div>
             </div>
             {% endif %}

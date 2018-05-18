@@ -11,16 +11,29 @@
 {% block body_base %}
 <main>
     <section class="jumbotron">
-        <div class="container">
-            {% include "_messages.html" %}
-            <h1>{% blocktrans %}Bem vindo ao Quiz <div style="font-size: 6rem; font-weight: 600;">Bem Estar Animal</div>{% endblocktrans %}</h1>
-            <p class="lead">
-                {% blocktrans %}
-            <h3>Participe do quiz clicando <a href="/quiz">AQUI</a></h3>
+<div class="container text-center">
+                {% include "_messages.html" %}
+                <h1>{% blocktrans %}Bem vindo ao Quiz <div style="font-size: 6rem; font-weight: 600;">Bem-Estar Animal</div>{% endblocktrans %}</h1>
+                <p class="lead">
+                    {% blocktrans %}
+                <h3>Participe do quiz clicando <a href="/quiz">AQUI</a></h3>
                 {% endblocktrans %}
-            </p>
+                </p>
+<hr>
+            </div>
+         <div class="row">
+        <div class="container-fluid">
+         <div class="row">
 
-            <img src="{% static 'img/vaca.png' %}" />
+            <div class="col-sm-6">
+                                <img class="img-fluid rounded" src="{% static 'img/cavalo.jpg' %}" />
+            </div>
+            <div class="col-sm-6">
+                <h1>"Temos a obrigação moral de tratar e manter os equídeos de forma mais próxima ao seu ambiente natural, evitando seu sofrimento e visando o seu bem-estar. "</h1>
+            </div>
+        </div>
+
+        </div>
         </div>
     </section>
 

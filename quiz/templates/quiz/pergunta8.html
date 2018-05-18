@@ -10,30 +10,36 @@
 
 {% block body_base %}
 <main>
-    <section class="jumbotron" style="height:93%;width: 100%;position:absolute;margin-bottom:0px;">
+<section class="jumbotron" style="margin-bottom:0px;">
         <br>
         <div class="row">
             <div class="col-sm-6">
-                <form class="text-center" action="" method="POST" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+                <form class="" action="" method="POST" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
                     {% csrf_token %}
-                    {{ form|bootstrap }}
-
+                    <div class="container">
+                        {{ form|bootstrap }}
+                        <div class="container-fluid card">
+                            <li>a) Para um bom grau de bem-estar é esperado que os animais estejam todos com o escore acima de 3 e abaixo de 7. </li>
+                            <li>b) A avaliação do ambiente, das suas instalações e do tempo de permanência do cavalo nesses ambientes são indicadores diretos de bem-estar nos equinos. </li>
+                            <li>c) O comportamento e as expressões corporais e faciais não são indicadores diretos de bem-estar nos equinos.</li>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <input class="btn btn-primary btn-large" type="submit" value="Enviar"/>
                         {% block extra_buttons %}
                         {% endblock extra_buttons %}
                     </div>
-                </form>
+                </form><div class=""><p style="color:re" id="demo"></p></div>
             </div>
             {% if user.is_authenticated  %}
-            <div class="col-sm-6" style="background: #559999; border: 3px solid #114444">
-
+            <div class="col-sm-6">
+ <img class="img-fluid rounded" src="{% static 'img/PERGUNTA 8.jpg' %}" />
                 <h1>Ranking</h1>
 
 
 
-                <table class="table table-drk table-striped">
+                <table class="table table-drk table-striped" style="background: #559999; border: 3px solid #114444">
                     <thead>
                     <tr>
                         <th>Nome</th>
@@ -52,12 +58,15 @@
 
                     </tbody>
                 </table>
-
+                                                        <button class="btn btn-success" type="button"
+onclick="document.getElementById('demo').innerHTML = 'ALTERNATIVA A'">
+Mostrar resposta</button>
                 {% else %}
                 <div class="col-sm-6">
-                <div class="card">
-                    <img src="{% static 'img/vaca.png' %}" />
-                </div>
+                    <div class="card">
+                        <img class="img-fluid rounded" src="{% static 'img/PERGUNTA 8.jpg' %}" />
+                    </div>
+
                 </div>
             </div>
             {% endif %}

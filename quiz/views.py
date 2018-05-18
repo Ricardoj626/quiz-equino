@@ -54,6 +54,7 @@ def pergunta1_view(request, pk):
         print(instance.pontuacao)
         print(instance.pergunta_1)
         form = p1Form(instance=instance)
+        print(form)
         context = {
             "form": form,
             "perguntas": perguntas,
